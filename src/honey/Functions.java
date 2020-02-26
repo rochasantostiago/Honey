@@ -172,24 +172,22 @@ public class Functions
 	}
     }
     
-    public void patchr(int id, String fn, String ln, String em, String ph)
+    public void putr(int id, String fn, String ln, String em, String ph)
     {
         try 
         {
             URL url = new URL("http://localhost:8080/api/tutorial/1.0/employees/" + id);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
-            conn.setRequestProperty("X-HTTP-Method-Override", "PATCH");
-            conn.setRequestMethod("POST");
+            conn.setRequestMethod("PUT");
             conn.setRequestProperty("Content-Type", "application/json");
 
-            String input = "{\"firstName\":" + "\"" + fn + "\"" + "," + "\"lastName\":" + "\"" + ln + "\"" + "," + "\"email\":" + "\"" + em + "\"" + "," + "\"phone\":" + "\"" + ph + "\"" + "}";
-
+            String input = "{\"employeeId\":" + id + "," + "\"firstName\":" + "\"" + fn + "\"" + "," + "\"lastName\":" + "\"" + ln + "\"" + "," + "\"email\":" + "\"" + em + "\"" + "," + "\"phone\":" + "\"" + ph + "\"" + "}";
             OutputStream os = conn.getOutputStream();
             os.write(input.getBytes());
             os.flush();
 
-            if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) 
+            if (conn.getResponseCode() != 200) 
             {
                 throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
             }

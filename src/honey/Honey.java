@@ -19,9 +19,9 @@ public class Honey
             Functions d = new Functions();   
             //p.postr(777, "Tiago", "Santos", "tiago@santos.com", "7777777777");
             //d.deletr(777);
-            //g.getr();
-            g.getr(777);
-            p.patchr(777, "Tiago", "Santos", "tiago@santos.com", "999");
+            //g.getr(777);
+            p.putr(777, "Tiago", "Santos", "tiago@santos.com", "999");
+            g.getr();
 	} 
         catch(Exception e) 
         {
