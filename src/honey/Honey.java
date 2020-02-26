@@ -15,7 +15,13 @@ public class Honey
         try 
         {
             Functions g = new Functions();
-            g.getr();
+            Functions p = new Functions();
+            Functions d = new Functions();   
+            //p.postr(777, "Tiago", "Santos", "tiago@santos.com", "7777777777");
+            //d.deletr(777);
+            //g.getr();
+            g.getr(777);
+            p.patchr(777, "Tiago", "Santos", "tiago@santos.com", "999");
 	} 
         catch(Exception e) 
         {
